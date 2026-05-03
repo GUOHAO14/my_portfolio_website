@@ -522,6 +522,63 @@ p {
   color: var(--accent-deep);
 }
 
+.achievement-category {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.achievement-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.achievement-card {
+  display: grid;
+  grid-template-columns: minmax(140px, 180px) 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.achievement-card-media {
+  display: grid;
+  place-items: center;
+  min-height: 140px;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(195, 95, 51, 0.16), rgba(241, 194, 155, 0.88));
+  color: rgba(33, 23, 18, 0.8);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.achievement-card-media span {
+  max-width: 100%;
+}
+
+.achievement-card-copy {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.achievement-card-copy .eyebrow {
+  margin-bottom: 0;
+}
+
+.achievement-meta {
+  margin-top: 0.75rem;
+  color: var(--accent-deep);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
 .feature-card {
   padding: 1.4rem;
 }
@@ -536,6 +593,7 @@ p {
   .card-grid,
   .project-grid,
   .achievements-layout,
+  .achievement-card,
   .contact-panel {
     grid-template-columns: 1fr;
   }
