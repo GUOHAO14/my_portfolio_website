@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects | Alex Carter</title>
+  <title>Projects | Guo Hao Khoo</title>
   <meta
     name="description"
-    content="Portfolio projects page template with space for project cards, videos, photography, and case studies."
+    content="Portfolio projects page of Guo Hao Khoo which comprise multiple fields in IT and Computer Science, including web/software development, networking, cybersecurity, and system/server administration."
   >
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,13 +15,18 @@
     rel="stylesheet"
   >
   <link rel="stylesheet" href="styles.css">
+  <style>
+    img, video {
+      border-radius: 18px 18px 0 0;
+    }
+  </style>
 </head>
 <body data-page="projects">
   <div class="site-shell">
     <header class="topbar">
       <a class="brand" href="index.html">
-        <span class="brand-mark">AC</span>
-        <span class="brand-text">Alex Carter</span>
+        <span class="brand-mark">GH</span>
+        <span class="brand-text">Guo Hao Khoo</span>
       </a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
         <span></span>
@@ -37,116 +42,91 @@
     <main>
       <section class="page-hero section">
         <div>
-          <p class="eyebrow">Projects archive</p>
-          <h1>Build a gallery that can hold case studies, videos, and photos</h1>
+          <p class="eyebrow">Projects & Engineering Work</p>
+          <h1>Building full-stack systems, networks, and secure infrastructure from concept to deployment</h1>
         </div>
+
         <p class="hero-text">
-          Each project card below can be swapped with your real work. Keep the structure and replace
-          the text, thumbnails, and links with your own portfolio items.
+          Computer Science student specializing in backend development, networking, and cybersecurity. 
+          Experienced in designing and deploying production-use web applications for SMEs, building multi-site network topologies, 
+          and configuring server infrastructures in simulated and real-world environments.
         </p>
       </section>
 
       <section class="section">
         <div class="filters" aria-label="Project categories">
           <button class="filter-chip is-active" data-filter="all">All</button>
-          <button class="filter-chip" data-filter="design">Design</button>
-          <button class="filter-chip" data-filter="product">Product</button>
-          <button class="filter-chip" data-filter="media">Media</button>
+          <button class="filter-chip" data-filter="industry">Industry</button>
+          <button class="filter-chip" data-filter="serverAdmin">Server Administration</button>
+          <button class="filter-chip" data-filter="networking">Networking</button>
+          <button class="filter-chip" data-filter="web/software">Web/Software</button>
         </div>
 
         <div class="project-grid">
-          <article class="project-card" data-category="design">
-            <div class="media-block media-photo">Photo placeholder</div>
+          <article class="project-card" data-category="industry,web/software" data-category="Web/Software">
+            <div class="media-block media-video">
+              <!-- <video controls>
+                <source src="videos/WIN_20260129_12_07_51_Pro.mp4" type="video/mp4">
+              </video> -->
+              <img src="images/finsparkPresentationThumbnail.png" alt="Finspark Administration Website Presentation">
+            </div>
             <div class="project-copy">
-              <p class="card-label">Design</p>
-              <h2>Brand system redesign</h2>
+              <p class="card-label">Industry | Web/Software</p>
+              <h2>Finspark Administration Website</h2>
               <p>
-                Describe the brief, your role, the tools used, and the measurable outcome or client feedback.
+                Internship work - analyzed existing workflows, designed solution, and developed a web application 
               </p>
               <ul class="meta-list">
-                <li>Role: Creative Lead</li>
-                <li>Timeline: 8 weeks</li>
-                <li>Outcome: 35% stronger engagement</li>
+                <li>Role: Full-Stack Developer (Project)</li>
+                <li>Timeline: 12 Weeks</li>
+                <li>Outcome: Automation implementation that enhanced company productivity</li>
               </ul>
             </div>
           </article>
 
-          <article class="project-card" data-category="product">
-            <div class="media-block media-video">Video placeholder</div>
+          <article class="project-card" data-category="networking">
+            <div class="media-block media-photo"><img src="images/networkingSREproject.png" alt="Network Topology"></div>
             <div class="project-copy">
-              <p class="card-label">Product</p>
-              <h2>Mobile app launch case study</h2>
+              <p class="card-label">Networking</p>
+              <h2>Multi-Site Network Design and Configuration</h2>
               <p>
-                Use this space for a walkthrough video, screenshots, launch metrics, and lessons learned.
+                Designed and simulated a multi-site network for a four-branch organization
               </p>
               <ul class="meta-list">
-                <li>Role: Product Designer</li>
-                <li>Platform: iOS / Android</li>
-                <li>Highlight: 100k sample downloads</li>
+                <li>Role: Design Topolgoy and Configure Network Devices</li>
+                <li>Platform: Cisco Packet Tracer</li>
               </ul>
             </div>
           </article>
 
-          <article class="project-card" data-category="media">
-            <div class="media-block media-gallery">Gallery placeholder</div>
+          <article class="project-card" data-category="serverAdmin,networking">
+            <div class="media-block media-photo"><img src="images/rockyLinuxAndUbuntu.png" alt="Rocky Linux and Ubuntu"></div>
             <div class="project-copy">
-              <p class="card-label">Media</p>
-              <h2>Event photography collection</h2>
+              <p class="card-label">Server Administration | Networking</p>
+              <h2>Multi-Purpose Server Configuration</h2>
               <p>
-                Perfect for visual-heavy work such as photography, exhibitions, installations, or live activations.
+                Server and network administration project focused on a server-client architecture
               </p>
               <ul class="meta-list">
-                <li>Format: Photo essay</li>
-                <li>Venue: Placeholder Hall</li>
-                <li>Deliverables: 120 edited images</li>
+                <li>Tools: VMWare and Virtual Machines</li>
+                <li>Server: Rocky Linux</li>
+                <li>Client: Ubuntu</li>
               </ul>
             </div>
           </article>
 
-          <article class="project-card" data-category="product">
-            <div class="media-block media-photo">UI gallery placeholder</div>
+          <article class="project-card" data-category="web/software">
+            <div class="media-block media-photo"><img src="images/cocDashboard.png" alt="'Clash of Courses' - Dashboard"></div>
             <div class="project-copy">
-              <p class="card-label">Product</p>
-              <h2>Dashboard experience overhaul</h2>
+              <p class="card-label">Web/Software</p>
+              <h2>A website developed to provide online courses for undergraduate students who are interested in self-learning</h2>
               <p>
-                Add before-and-after screenshots, process notes, stakeholder quotes, and final visual results.
+                Server and network administration project focused on a server-client architecture
               </p>
               <ul class="meta-list">
-                <li>Role: UX Strategist</li>
-                <li>Team: 6 collaborators</li>
-                <li>Result: Reduced support tickets</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="project-card" data-category="design">
-            <div class="media-block media-video">Campaign reel placeholder</div>
-            <div class="project-copy">
-              <p class="card-label">Design</p>
-              <h2>Campaign motion package</h2>
-              <p>
-                Embed a reel, storyboard stills, and creative direction notes for a polished showcase.
-              </p>
-              <ul class="meta-list">
-                <li>Medium: Motion graphics</li>
-                <li>Client: Placeholder Brand</li>
-                <li>Highlight: Regional campaign rollout</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="project-card" data-category="media">
-            <div class="media-block media-gallery">Portfolio gallery placeholder</div>
-            <div class="project-copy">
-              <p class="card-label">Media</p>
-              <h2>Studio documentation series</h2>
-              <p>
-                Use this for documentaries, behind-the-scenes footage, or creative process snapshots.
-              </p>
-              <ul class="meta-list">
-                <li>Type: Mixed media</li>
-                <li>Assets: Video + stills</li>
-                <li>Purpose: Portfolio storytelling</li>
+                <li>Highlights: Customized course recommendation algorithm, chat and forum functions</li>
+                <li>Role: Full-Stack Developer/Project Leader</li>
+                <li>Backend: PHP + MySQL (XAMPP)</li>
               </ul>
             </div>
           </article>

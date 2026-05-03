@@ -35,7 +35,8 @@ if (filterButtons.length && projectCards.length) {
       button.classList.add("is-active");
 
       projectCards.forEach((card) => {
-        const matches = selected === "all" || card.dataset.category === selected;
+        const categories = card.dataset.category.split(",");
+        const matches = selected === "all" || categories.includes(selected);
         card.dataset.hidden = String(!matches);
       });
     });
