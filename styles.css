@@ -95,7 +95,7 @@ video {
   width: 2.7rem;
   height: 2.7rem;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  background: linear-gradient(135deg, #005008, #800000);
   color: #fff8f1;
 }
 
