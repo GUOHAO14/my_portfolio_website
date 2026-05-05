@@ -1,15 +1,16 @@
+/* THEME: Cyberpunk with Green */
 :root {
-  --bg: #f3efe7;
-  --paper: rgba(255, 251, 245, 0.72);
-  --panel: rgba(255, 248, 239, 0.82);
-  --panel-strong: #fffaf2;
-  --text: #211712;
-  --muted: #6d5b52;
-  --line: rgba(62, 35, 18, 0.12);
-  --accent: #c35f33;
-  --accent-deep: #8f3918;
-  --accent-soft: #f1c29b;
-  --shadow: 0 24px 60px rgba(72, 38, 18, 0.12);
+  --bg: #0a0e27;
+  --paper: rgba(15, 20, 40, 0.75);
+  --panel: rgba(20, 28, 50, 0.85);
+  --panel-strong: rgba(25, 35, 60, 0.95);
+  --text: #e0ffff;
+  --muted: #7dd3fc;
+  --line: rgba(16, 185, 129, 0.2);
+  --accent: #059669;
+  --accent-deep: #10b981;
+  --accent-soft: #6ee7b7;
+  --shadow: 0 24px 60px rgba(16, 185, 129, 0.15);
   --radius-lg: 28px;
   --radius-md: 20px;
   --radius-sm: 14px;
@@ -21,7 +22,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior removed for better performance */
 }
 
 body {
@@ -30,21 +31,13 @@ body {
   font-family: "Space Grotesk", sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at top left, rgba(195, 95, 51, 0.18), transparent 28%),
-    radial-gradient(circle at right 20%, rgba(143, 57, 24, 0.14), transparent 30%),
-    linear-gradient(180deg, #f8f1e7 0%, #f2ede5 100%);
+    radial-gradient(circle at top left, rgba(16, 185, 129, 0.12), transparent 28%),
+    radial-gradient(circle at right 20%, rgba(16, 185, 129, 0.1), transparent 30%),
+    linear-gradient(180deg, #0a0e27 0%, #05070f 100%);
 }
 
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.22) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.18) 1px, transparent 1px);
-  background-size: 42px 42px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.65), transparent 88%);
-  pointer-events: none;
+  content: none;
 }
 
 a {
@@ -76,8 +69,7 @@ video {
   margin-bottom: 1.5rem;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255, 249, 241, 0.78);
-  backdrop-filter: blur(16px);
+  background: rgba(7, 13, 31, 0.95);
   box-shadow: var(--shadow);
 }
 
@@ -112,16 +104,18 @@ video {
 .site-nav a {
   padding: 0.7rem 1rem;
   border-radius: 999px;
-  color: var(--muted);
+  color: var(--text);
   transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
 .site-nav a:hover,
 .site-nav a.is-current {
-  background: rgba(195, 95, 51, 0.14);
+  background: rgba(16, 185, 129, 0.25);
   color: var(--text);
   transform: translateY(-1px);
 }
+
+/* Unused theme selectors removed for cleaner CSS */
 
 .nav-toggle {
   display: none;
@@ -242,7 +236,7 @@ p {
 
 .button-secondary {
   border-color: var(--line);
-  background: rgba(255, 250, 243, 0.8);
+  background: black;
 }
 
 .profile-card,
@@ -265,12 +259,6 @@ p {
 .spotlight-card,
 .achievement-feature {
   padding: 1.5rem;
-}
-
-.profile-card {
-  background:
-    linear-gradient(180deg, rgba(255, 246, 237, 0.95), rgba(245, 222, 205, 0.8)),
-    var(--paper);
 }
 
 .stat-list,
@@ -334,7 +322,7 @@ p {
   padding: 0.75rem 1rem;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255, 251, 246, 0.88);
+  background: black;
 }
 
 .timeline {
@@ -397,7 +385,7 @@ p {
 .contact-details a {
   padding: 0.95rem 1rem;
   border-radius: var(--radius-sm);
-  background: rgba(255, 252, 247, 0.88);
+  background: black;
   border: 1px solid var(--line);
 }
 
@@ -457,23 +445,13 @@ p {
   color: rgba(33, 23, 18, 0.72);
 }
 
-.media-photo {
-  background:
-    linear-gradient(135deg, rgba(195, 95, 51, 0.35), rgba(241, 194, 155, 0.8)),
-    linear-gradient(45deg, #f7ede2, #f9dcc4);
+.media-photo-loki {
+  background: linear-gradient(135deg, #e9c500, #005000);
 }
 
-.media-video {
-  background:
-    linear-gradient(135deg, rgba(143, 57, 24, 0.78), rgba(195, 95, 51, 0.4)),
-    linear-gradient(45deg, #39231a, #7f4e3a);
+.media-photo-red {
+  background: linear-gradient(135deg, black, #840000);
   color: #fff6ee;
-}
-
-.media-gallery {
-  background:
-    linear-gradient(135deg, rgba(241, 194, 155, 0.75), rgba(255, 250, 243, 0.95)),
-    linear-gradient(45deg, #f3ede6, #fae5d4);
 }
 
 .meta-list {
@@ -548,7 +526,7 @@ p {
 .achievement-card-media {
   display: grid;
   place-items: center;
-  min-height: 140px;
+  min-height: 100px;
   padding: 1rem;
   border-radius: var(--radius-md);
   background: linear-gradient(135deg, rgba(195, 95, 51, 0.16), rgba(241, 194, 155, 0.88));
