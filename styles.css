@@ -22,7 +22,7 @@
 }
 
 html {
-  /* scroll-behavior removed for better performance */
+  scroll-behavior: smooth;
 }
 
 body {
@@ -323,6 +323,36 @@ p {
   border: 1px solid var(--line);
   border-radius: 999px;
   background: black;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.skill-category h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 1rem 0;
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 0.5rem;
+}
+
+.skill-category .tag-list {
+  margin-top: 0.75rem;
+  gap: 0.6rem;
+}
+
+@media (max-width: 768px) {
+  .skills-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 .timeline {
