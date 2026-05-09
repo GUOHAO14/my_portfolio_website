@@ -587,6 +587,62 @@ p {
   font-weight: 700;
 }
 
+.references-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.reference-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  padding: 1.5rem;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.reference-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(16, 185, 129, 0.25);
+}
+
+.reference-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+.reference-position {
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+  color: var(--accent-soft);
+  font-weight: 600;
+}
+
+.reference-details {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.reference-details p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.reference-details a {
+  color: var(--accent-soft);
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.reference-details a:hover {
+  color: var(--text);
+}
+
 .feature-card {
   padding: 1.4rem;
 }
@@ -602,6 +658,7 @@ p {
   .project-grid,
   .achievements-layout,
   .achievement-card,
+  .references-grid,
   .contact-panel {
     grid-template-columns: 1fr;
   }
