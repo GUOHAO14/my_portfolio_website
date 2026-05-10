@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="head.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finspark Administration Website | Guo Hao Khoo</title>
+  <meta
+    name="description"
+    content="Finspark Administration Website - A comprehensive Node.js web application for managing courses, payments, financial documents, and customer relationships."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    #back {
+      color: var(--accent-soft); 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 0.5rem;
+    }
+    #back:hover {
+      color: white;
+      background-color: black;
+      box-shadow: 0px 0px 20px 10px black;
+      border-radius: 10px;
+      padding-right: 5px;
+    }
+    p {
+        color: var(--text);
+    }
+    .project-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .project-header-text h2 {
+      margin-top: 0;
+    }
+
+    .project-header-image {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .project-header-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .tech-stack {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .tech-item {
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: rgba(16, 185, 129, 0.05);
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .feature-item {
+      padding: 1rem;
+      /* border-left: 3px solid var(--accent-soft); */
+      background: rgba(16, 185, 129, 0.08);
+      border-radius: var(--radius-sm);
+    }
+
+    .feature-item h4 {
+      margin: 0 0 0.5rem 0;
+      color: var(--accent-soft);
+      font-size: 0.95rem;
+    }
+
+    .feature-item p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .section-divider {
+      border-top: 2px solid var(--line);
+      margin: 3rem 0;
+    }
+
+    .code-block {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 1.5rem;
+      overflow-x: auto;
+      margin: 1rem 0;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      color: var(--muted);
+      white-space: pre;
+      line-height: 1.6;
+      overflow-y: auto;
+      max-height: 600px;
+    }
+
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .outcome-card {
+      padding: 1.5rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--paper);
+      text-align: center;
+    }
+
+    .outcome-card h4 {
+      margin: 0 0 0.5rem 0;
+      color: var(--accent-soft);
+      font-size: 1rem;
+    }
+
+    .outcome-card p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .disclaimer-box {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 1.5rem;
+      border-left: 4px solid #ff9500;
+      background: rgba(255, 149, 0, 0.08);
+      border-radius: var(--radius-sm);
+      margin: 2rem 0;
+      transition: opacity 200ms ease, transform 200ms ease;
+    }
+
+    .disclaimer-box.hidden {
+      display: none;
+    }
+
+    .disclaimer-content {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .disclaimer-box h4 {
+      margin: 0;
+      color: #ff9500;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .disclaimer-box ul {
+      margin: 0;
+      padding-left: 1.5rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .disclaimer-box li {
+      margin-bottom: 0.5rem;
+    }
+
+    .disclaimer-close {
+      background: none;
+      border: 1px solid #ff9500;
+      color: #ff9500;
+      font-size: 0.9rem;
+      cursor: pointer;
+      padding: 0.6rem 1.5rem;
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      transition: background-color 150ms ease, color 150ms ease;
+      align-self: center;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+      margin: auto;
+    }
+
+    .disclaimer-close:hover {
+      background-color: #ff9500;
+      color: #0a0e27;
+    }
+
+    .video-container {
+      margin: 2rem 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #000;
+    }
+
+    .video-section h3 {
+      margin-bottom: 1rem;
+    }
+
+    .video-description {
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    @media (max-width: 768px) {
+      .project-header {
+        grid-template-columns: 1fr;
+      }
+
+      .tech-stack {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .feature-list {
+        grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 472px) {
+      .feature-list {
+        grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      aspect-ratio: 1;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.3);
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.15);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 200ms ease;
+    }
+
+    .gallery-modal.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .gallery-modal-content {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      animation: slideIn 200ms ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .gallery-modal-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 2.5rem;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      transition: background-color 150ms ease;
+      z-index: 1001;
+    }
+
+    .gallery-modal-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .gallery-modal-nav {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 1rem;
+      z-index: 1001;
+    }
+
+    .gallery-modal-prev,
+    .gallery-modal-next {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 1.5rem;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 150ms ease;
+    }
+
+    .gallery-modal-prev:hover,
+    .gallery-modal-next:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  
+  </style>
+</head>
+<body data-page="project-detail">
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">GH</span>
+        <span class="brand-text">Guo Hao Khoo</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="achievements.html">Achievements</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section">
+        <div style="margin-bottom: 2rem;">
+          <a id="back" href="projects.html" >
+            <span>←</span> Back to Projects
+          </a>
+        </div>
+
+        <div id="disclaimerBox" class="disclaimer-box">
+          <div class="disclaimer-content">
+            <h4>⚠️ Disclaimer</h4>
+            <ul>
+              <li><strong>High-Level Overview Only:</strong> This project documentation provides a high-level architectural and feature overview of the system.</li>
+              <li><strong>Privacy Protection:</strong> Due to proprietary concerns and confidentiality agreements, detailed source code and implementation specifics cannot be disclosed publicly.</li>
+              <li><strong>Information Currency:</strong> This documentation reflects the system state as of my departure in September 2025. Subsequent patches, updates, and improvements made by the Finspark IT team may not be reflected here.</li>
+            </ul>
+            <button class="disclaimer-close" onclick="dismissDisclaimer()" aria-label="Close disclaimer">I understand</button>
+          </div>
+        </div>
+
+        <div class="project-header">
+          <div class="project-header-text">
+            <p class="eyebrow">Industry | Full-Stack Web Development</p>
+            <h2>Finspark Administration Website</h2>
+            <p style="font-size: 1.1rem; color: var(--muted); line-height: 1.6;">
+              A centralized Node.js & Express.js web application designed to streamline business operations for Finspark Sdn Bhd (Finspark Holdings and MMC FP Sdn Bhd). Integrates with AutomaticSales.ai (CRM) and AutoCount Cloud Accounting (accounting software) for comprehensive management of courses, payments, and financial documents.
+            </p>
+          </div>
+          <div class="project-header-image">
+            <img src="images/finsparkPresentationThumbnail.png" alt="Finspark Administration Website">
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <section>
+          <h3>Project Overview</h3>
+          <p>
+            As part of my 12-week internship at Finspark Sdn Bhd, I led the research, design, and development of a comprehensive administration website. The project addresses critical workflow inefficiencies across multiple departments by consolidating course management, customer relationship management, and financial operations into a single, intuitive platform. The centralized system also aims to resolve the company's problem of data fragmentation, where user and business data were spread across different platforms. 
+          </p>
+          <p>
+            Due Finspark's nature of being an SME with less focus in IT operations, I had to develop the system by myself with occasional supervision from my supervisors. The alpha version was officially deployed to live production in October 2025 and used by 15+ employees across finance, operations, marketing, and sales departments.
+          </p>
+
+          <div class="outcome-grid">
+            <div class="outcome-card">
+              <h4>Timeline</h4>
+              <p>12 Weeks (July - September 2025)</p>
+            </div>
+            <div class="outcome-card">
+              <h4>Role</h4>
+              <p>Full-Stack Developer</p>
+            </div>
+            <div class="outcome-card">
+              <h4>Users</h4>
+              <p>15+ Employees (Multiple Departments)</p>
+            </div>
+            <div class="outcome-card">
+              <h4>Impact</h4>
+              <p>Increased productivity and operational efficiency</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section>
+          <h3>Core Features</h3>
+          <div class="feature-list">
+            <div class="feature-item">
+              <h4>📚 Course Management</h4>
+              <p>Manage courses (online & offline), identify payment status, and track customer enrollment. Kanban-style interface with drag-and-drop functionality for flexible course scheduling.</p>
+            </div>
+            <div class="feature-item">
+              <h4>💰 Payment Processing</h4>
+              <p>Record and manage customer payments. Generate Official Receipts (OR) and Payment Vouchers (PV). Verify payments with approval workflows by accounting team.</p>
+            </div>
+            <div class="feature-item">
+              <h4>📄 Financial Document Generation</h4>
+              <p>Automatically generate and manage quotations, invoices, official receipts, and payment vouchers in PDF format. Centralized document listing with download capabilities.</p>
+            </div>
+            <div class="feature-item">
+              <h4>👥 Contact Management</h4>
+              <p>Search, create, and update customer contacts. Seamless integration with AutomaticSales.ai (CRM) for synchronized customer data.</p>
+            </div>
+            <div class="feature-item">
+              <h4>📝 Registration Forms</h4>
+              <p>Public-facing registration forms for customers to sign up for courses. Automated validation, contact creation, and payment tag assignment.</p>
+            </div>
+            <div class="feature-item">
+              <h4>✉️ Email Automation</h4>
+              <p>Automated email notifications for invoices and course updates. Bulk email capabilities for efficient communication with customers.</p>
+            </div>
+            <div class="feature-item">
+              <h4>📊 Marketing Tools</h4>
+              <p>Webinar management tools including CSV conversion, duplicate detection, and attendance tracking to optimize marketing operations.</p>
+            </div>
+            <div class="feature-item">
+              <h4>🔐 Role-Based Access Control</h4>
+              <p>Multi-role authentication system (Admin, Sales, Finance, Operations, Marketing) with granular permission management.</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section>
+          <h3>Technology Stack</h3>
+          <div class="tech-stack">
+            <div class="tech-item">Node.js v16+</div>
+            <div class="tech-item">Express.js</div>
+            <div class="tech-item">HTML5</div>
+            <div class="tech-item">CSS3</div>
+            <div class="tech-item">JavaScript</div>
+            <div class="tech-item">Axios</div>
+            <div class="tech-item">Google APIs</div>
+            <div class="tech-item">Nodemailer</div>
+            <div class="tech-item">LibreOffice</div>
+            <div class="tech-item">DocxTemplater</div>
+            <div class="tech-item">Docker</div>
+            <div class="tech-item">Heroku</div>
+          </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section>
+          <h3>Architecture & Key Systems</h3>
+
+          <h4 style="margin-top: 2rem;">1. Authentication & Authorization</h4>
+          <p>
+            Multi-layer authentication using JWT tokens and Google Sheets* as the user database. Role-based access control with granular permission caching for performance optimization. Features include session management, secure cookies, and fallback authentication using admin credentials.
+          </p><p>Google Sheets was utilized as a lightweight database solution to balance functionality and cost-efficiency. Due to the company's relatively small operational scale, deploying a full-scale database management system was not considered necessary. This approach is subject to change as future scalability requirements evolve.
+          </p>
+
+          <h4 style="margin-top: 2rem;">2. Course Management System</h4>
+          <p>
+            Kanban-style interface for managing course schedules. Supports both online and offline courses. This feature allows admins to view students who are scheduled to attend a course for a particular date. Drag-and-drop functionality allows admins to reallocate students between course dates. Color-coded payment status indicators provide at-a-glance visibility into customer payment progress.
+          </p>
+
+          <h4 style="margin-top: 2rem;">3. AutoCount Integration</h4>
+          <p>
+            Seamless integration with AutoCount Cloud Accounting API for managing debtors (companies), quotations, and other financial documents. Quotation capacity management ensures registration slots are accurately tracked. All financial transactions are automatically recorded and categorized.
+          </p>
+
+          <h4 style="margin-top: 2rem;">4. Payment Verification Workflow</h4>
+          <p>
+            Three-stage payment approval process: submission (via payment forms) → pending review (stored in Google Sheets) → approval/rejection by finance team. Once approved, Official Receipts or Payment Vouchers are automatically created in AutoCount, while its details will be pulled to the system for viewing. Rejected payments are logged for audit purposes.
+          </p>
+
+          <h4 style="margin-top: 2rem;">5. Document Generation Pipeline</h4>
+          <p>
+            Uses DocxTemplater to populate Word templates with customer data, then converts to PDF via LibreOffice. Supports quotations, invoices, official receipts, and payment vouchers. All documents are versioned and stored for audit trail purposes.
+          </p>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section>
+          <h3>Outcomes & Impact</h3>
+          <p style="font-size: 1.05rem; font-weight: 500; color: var(--text); margin-bottom: 1rem;">
+            Successfully implemented operational automations that directly improved company efficiency:
+          </p>
+          <ul style="list-style: none; padding: 0; display: grid; gap: 1rem;">
+            <li style="padding-left: 2rem; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--accent-soft); font-weight: bold;">✓</span>
+              <strong>15+ Employee Productivity Boost:</strong> Centralized platform eliminated manual data entry and reduced context switching across multiple systems
+            </li>
+            <li style="padding-left: 2rem; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--accent-soft); font-weight: bold;">✓</span>
+              <strong>Automated Document Generation:</strong> Reduced Finance & Accounting department workload for manual invoice and receipt creation
+            </li>
+            <li style="padding-left: 2rem; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--accent-soft); font-weight: bold;">✓</span>
+              <strong>Real-Time Financial Tracking:</strong> Finance and Operations team now have instant visibility into payment status and outstanding amounts
+            </li>
+            <li style="padding-left: 2rem; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--accent-soft); font-weight: bold;">✓</span>
+              <strong>Streamlined Marketing Operations:</strong> Webinar management tools significantly reduced time spent on attendee data processing
+            </li>
+            <li style="padding-left: 2rem; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--accent-soft); font-weight: bold;">✓</span>
+              <strong>Production Deployment:</strong> Alpha version deployed to live production in October 2025, serving multiple departments daily
+            </li>
+          </ul>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section>
+          <h3>Technical Highlights</h3>
+
+          <h4 style="margin-top: 2rem;">API Integration Strategy</h4>
+          <p>
+            Built custom service classes to abstract complex API interactions with AutomaticSales.ai and AutoCount. Implemented error handling, retry logic, and rate limiting to ensure reliable integration with external services.
+          </p>
+
+          <h4 style="margin-top: 2rem;">Security Implementation</h4>
+          <p>
+            Multi-layer security stack including CORS configuration, express rate limiting, input sanitization, XSS protection headers, and secure JWT authentication. Environment variables (stored in .env file and Heroku) protect sensitive credentials and API keys.
+          </p>
+
+          <h4 style="margin-top: 2rem;">Containerization with Docker</h4>
+          <p>
+            Implemented Docker containerization for consistent development and production environments. Dockerfile includes LibreOffice dependencies for PDF generation capabilities. Multi-stage builds optimize image size and caching efficiency.
+          </p>
+
+          <h4 style="margin-top: 2rem;">Performance Optimization</h4>
+          <p>
+            Permission caching reduces database queries for frequently accessed role permissions. Batch email processing with rate limiting prevents service throttling. Strategic use of async/await for non-blocking I/O operations.
+          </p>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section>
+          <h3>Project Structure (High-Level View)</h3>
+          <div class="code-block">
+finspark-admin-website/
+├── server.js                # Main Express server & middleware setup
+├── src/
+│   ├── routes/              # API endpoint definitions
+│   ├── controllers/         # Business logic & request handling
+│   ├── middleware/          # Custom middleware (auth, validation)
+│   ├── services/            # External integrations (APIs)
+│   └── utils/               # Helper classes & utilities
+├── public/
+│   ├── views/               # HTML pages for different features
+│   ├── forms/               # Customer registration forms
+│   ├── js/                  # Frontend JavaScript logic
+│   ├── css/                 # Stylesheets
+│   └── images/              # Static assets
+├── templates/               # DOCX templates for PDF generation
+├── [redacted].env           # Environment variables (local)
+├── Dockerfile               # Container configuration
+└── package.json             # Dependencies
+          </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section>
+          <h3>Deployment & Maintenance</h3>
+          <p>
+            <strong>Deployment Strategy:</strong> Automated CI/CD pipeline using GitHub Actions. Commits trigger Docker image builds that are pushed to Heroku's container registry. Application redeploys automatically within ~3 minutes.
+          </p>
+          <p style="margin-top: 1rem;">
+            <strong>Local Development:</strong> Standard Node.js setup with .env configuration. Docker support available for testing PDF generation features with LibreOffice dependencies. Comprehensive .gitignore protects sensitive files.
+          </p>
+          <p style="margin-top: 1rem;">
+            <strong>Future Improvements:</strong> The codebase includes detailed documentation for successors. Some areas flagged for refactoring include quotation API consistency and expanded test coverage.
+          </p>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section>
+          <h3>Gallery - System Briefing and Presentation</h3>
+          <div class="gallery-grid">
+            <div class="gallery-item">
+              <img src="images/finspark-gallery-1.png" alt="Finspark Presentation Photo 1" loading="lazy" onclick="openGalleryModal(this)">
+            </div>
+            <div class="gallery-item">
+              <img src="images/finspark-gallery-2.jpg" alt="Finspark Presentation Photo 2" loading="lazy" onclick="openGalleryModal(this)">
+            </div>
+            <div class="gallery-item">
+              <img src="images/finspark-gallery-3.png" alt="Finspark Presentation Photo 3" loading="lazy" onclick="openGalleryModal(this)">
+            </div>
+            <div class="gallery-item">
+              <img src="images/finspark-gallery-4.jpg" alt="Finspark Presentation Photo 4" loading="lazy" onclick="openGalleryModal(this)">
+            </div>
+          </div>
+        </section>
+
+        <div id="galleryModal" class="gallery-modal" onclick="closeGalleryModal(event)">
+          <button class="gallery-modal-close" onclick="closeGalleryModal()">&times;</button>
+          <img class="gallery-modal-content" id="galleryModalImage" src="" alt="">
+          <div class="gallery-modal-nav">
+            <button class="gallery-modal-prev" onclick="changeGalleryImage(-1)">&#10094;</button>
+            <button class="gallery-modal-next" onclick="changeGalleryImage(1)">&#10095;</button>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <section style="text-align: center; padding: 3rem 0;">
+          <h3>Learn More</h3>
+          <p style="color: var(--muted); margin-bottom: 2rem;">
+            This project showcases full-stack development capabilities, API integration, system design, and real-world business automation. <br>
+            Deployed and actively used in production.
+          </p>
+          <a href="projects.html" class="button button-primary" style="display: inline-block;">View Other Projects</a>
+        </section>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Finspark Administration Website - Internship Project</p>
+    </footer>
+  </div>
+
+  <script>
+    function dismissDisclaimer() {
+      const disclaimerBox = document.getElementById('disclaimerBox');
+      disclaimerBox.classList.add('hidden');
+    }
+
+    let currentGalleryIndex = 0;
+
+    function openGalleryModal(img) {
+      const modal = document.getElementById('galleryModal');
+      const modalImage = document.getElementById('galleryModalImage');
+      const galleryItems = document.querySelectorAll('.gallery-item img');
+      
+      currentGalleryIndex = Array.from(galleryItems).indexOf(img);
+      modalImage.src = img.src;
+      modalImage.alt = img.alt;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeGalleryModal(event) {
+      if (event && event.target !== document.getElementById('galleryModal')) {
+        return;
+      }
+      const modal = document.getElementById('galleryModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function changeGalleryImage(direction) {
+      const galleryItems = document.querySelectorAll('.gallery-item img');
+      currentGalleryIndex += direction;
+      
+      if (currentGalleryIndex >= galleryItems.length) {
+        currentGalleryIndex = 0;
+      } else if (currentGalleryIndex < 0) {
+        currentGalleryIndex = galleryItems.length - 1;
+      }
+      
+      const modalImage = document.getElementById('galleryModalImage');
+      modalImage.src = galleryItems[currentGalleryIndex].src;
+      modalImage.alt = galleryItems[currentGalleryIndex].alt;
+    }
+
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('galleryModal');
+      if (modal.classList.contains('active')) {
+        if (e.key === 'Escape') {
+          closeGalleryModal();
+        } else if (e.key === 'ArrowLeft') {
+          changeGalleryImage(-1);
+        } else if (e.key === 'ArrowRight') {
+          changeGalleryImage(1);
+        }
+      }
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

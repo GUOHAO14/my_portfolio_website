@@ -43,12 +43,12 @@
     <main>
       <section class="page-hero section">
         <div>
-          <p class="eyebrow">My Academic and Industrial Work</p>
+          <p class="eyebrow">My Industrial and Academic Work</p>
           <h1>Full-stack systems, networks, infrastructure, and more</h1>
         </div>
 
         <p class="hero-text">
-          
+          Throughout my years studying at APU, these are some of my proudest industrial/academic projects that I have worked on.
         </p>
       </section>
 
@@ -56,35 +56,39 @@
         <div class="filters" aria-label="Project categories">
           <button class="filter-chip is-active" data-filter="all">All</button>
           <button class="filter-chip" data-filter="industry">Industry</button>
-          <button class="filter-chip" data-filter="serverAdmin">Server Administration</button>
           <button class="filter-chip" data-filter="networking">Networking</button>
-          <button class="filter-chip" data-filter="web/software">Web/Software</button>
           <button class="filter-chip" data-filter="cyberSecurity">Cyber Security</button>
+          <button class="filter-chip" data-filter="web/software">Web/Software</button>
+          <button class="filter-chip" data-filter="serverAdmin">Server Administration</button>
         </div>
 
         <div class="project-grid">
-          <article class="project-card" data-category="industry,web/software" data-category="Web/Software">
-            <div class="media-block media-photo-loki">
-              <!-- <video controls>
-                <source src="videos/WIN_20260129_12_07_51_Pro.mp4" type="video/mp4">
-              </video> -->
-              <img src="images/finsparkPresentationThumbnail.png" alt="Finspark Administration Website Presentation">
-            </div>
-            <div class="project-copy">
-              <p class="card-label">Industry | Web/Software</p>
-              <h2>Finspark Administration Website</h2>
-              <p>
-                Internship work - analyzed existing workflows, designed solution, and developed a Node.js web application 
-              </p>
-              <ul class="meta-list">
-                <li>Role: Full-Stack Developer (Project)</li>
-                <li>Backend: Node.js, Express.js</li>
-                <li>Frontend: HTML, CSS, JS</li>
-                <li>Timeline: 12 Weeks</li>
-                <li>Outcome: Automation implementation that enhanced company productivity</li>
-              </ul>
-            </div>
-          </article>
+          <a href="finspark-project.html" style="text-decoration: none; color: inherit;">
+            <article class="project-card" data-category="industry,web/software" data-category="Web/Software" style="cursor: pointer; transition: transform 200ms ease, box-shadow 200ms ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 24px 60px rgba(16, 185, 129, 0.25)'" onmouseout="this.style.transform='none'; this.style.boxShadow='var(--shadow)'">
+              <div class="media-block media-photo-loki">
+                <!-- <video controls>
+                  <source src="videos/WIN_20260129_12_07_51_Pro.mp4" type="video/mp4">
+                </video> -->
+                <img src="images/finsparkPresentationThumbnail.png" alt="Finspark Administration Website Presentation">
+              </div>
+              <div class="project-copy">
+                <p class="card-label">Industry | Web/Software</p>
+                <h2>Finspark Administration Website</h2>
+                <p>
+                  Internship work - analyzed existing workflows, designed solution, and developed a Node.js web application 
+                </p>
+                <ul class="meta-list">
+                  <li>Role: Full-Stack Developer</li>
+                  <li>Backend: Node.js, Express.js</li>
+                  <li>Frontend: HTML, CSS, JS</li>
+                  <li>Timeline: 12 Weeks</li>
+                  <li>Outcome: Automation implementation that enhanced company productivity</li>
+                </ul>
+                <br>
+                <button class="button button-primary">View Project</button>
+              </div>
+            </article>
+          </a>
 
           <article class="project-card" data-category="networking">
             <div class="media-block media-photo-red"><img src="images/networkingSREproject.png" alt="Network Topology"></div>
@@ -117,23 +121,19 @@
             </div>
           </article>
 
-          <article class="project-card" data-category="web/software">
-            <div class="media-block media-photo-loki"><img src="images/cocDashboard.png" alt="'Clash of Courses' Website - Dashboard"></div>
+          <article class="project-card" data-category="cyberSecurity">
+            <div class="media-block media-photo-loki"><img src="images/digitalForensics.png" alt="Digital Forensics - Data Acquisition, Analysis, and Reporting"></div>
             <div class="project-copy">
-              <p class="card-label">Web/Software</p>
-              <h2>Personalized Online Course Web Application</h2>
+              <p class="card-label">Cybersecurity & Digital Forensics</p>
+              <h2>Data Acquisition, Analysis, and Reporting</h2>
               <p>
-                A website developed to provide online courses for undergraduate students who are interested in self-learning
+                Conducted data acquisition, analysis, and reporting to identify evidence of malicious activities on an infected machine (Windows 10 VM)
               </p>
               <ul class="meta-list">
-                <li>Highlights: Customized course recommendation algorithm, chat and forum functions</li>
-                <li>Role: Full-Stack Developer/Project Leader</li>
-                <li>Backend: PHP + MySQL (XAMPP)</li>
-                <li>Frontend: HTML, CSS, JS</li>
-                <li>Additional Implementation: WYSIWYG editor library (TinyMCE)</li>
+                <li>Role: Acquire and analyze RAM and HDD images</li>
+                <li>Tools: FieldKit (FTK Imager), Autopsy, Volatility Workbench, Virus Total</li>
+                <li>Outcomes: Identified spyware (keylogger), malware, and trojan evidences</li>
               </ul>
-              <br>
-              <a style="color: #0093ff;" href="https://github.com/GUOHAO14/Online_Course_Website_DPM_SEM5.git" target="_blank" rel="noreferrer"><u>↗ GitHub Repo for More Info</u></a>
             </div>
           </article>
 
@@ -156,21 +156,23 @@
             </div>
           </article>
 
-          <article class="project-card" data-category="cyberSecurity">
-            <div class="media-block media-photo-red"><img src="images/digitalForensics.png" alt="Digital Forensics - Data Acquisition, Analysis, and Reporting"></div>
+          <article class="project-card" data-category="web/software">
+            <div class="media-block media-photo-red"><img src="images/cocDashboard.png" alt="'Core of Courses' Website - Dashboard"></div>
             <div class="project-copy">
-              <p class="card-label">Cybersecurity & Digital Forensics</p>
-              <h2>Data Acquisition, Analysis, and Reporting</h2>
+              <p class="card-label">Web/Software</p>
+              <h2>Personalized Online Course Web Application</h2>
               <p>
-                Conducted data acquisition, analysis, and reporting to identify evidence of malicious activities on an infected machine (Windows 10 VM)
+                A website developed to provide online courses for undergraduate students who are interested in self-learning
               </p>
               <ul class="meta-list">
-                <li>Role: Acquire and analyze RAM and HDD images</li>
-                <li>Tools: FieldKit (FTK Imager), Autopsy, Volatility Workbench, Virus Total</li>
-                <li>Outcomes: Identified spyware (keylogger), malware, and trojan evidences</li>
+                <li>Highlights: Customized course recommendation algorithm, chat and forum functions</li>
+                <li>Role: Full-Stack Developer/Project Leader</li>
+                <li>Backend: PHP + MySQL (XAMPP)</li>
+                <li>Frontend: HTML, CSS, JS</li>
+                <li>Additional Implementation: WYSIWYG editor library (TinyMCE)</li>
               </ul>
               <br>
-              <!-- <a style="color: #0093ff;" href="files/CS Digital Forensics Report DPM-SEM5.pdf" download="GUOHAOKHOO-DF-Data_Acquisition_and_Analysis_Report.pdf"><u>&#11015; Download Report</u></a> -->
+              <a style="color: #0093ff;" href="https://github.com/GUOHAO14/Online_Course_Website_DPM_SEM5.git" target="_blank" rel="noreferrer"><u>↗ GitHub Repo for More Info</u></a>
             </div>
           </article>
         </div>

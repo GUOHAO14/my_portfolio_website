@@ -57,6 +57,10 @@ video {
   padding: 1.25rem 0 3rem;
 }
 
+main {
+  padding: 0 0.6rem;
+}
+
 .topbar {
   position: sticky;
   top: 1rem;
@@ -66,7 +70,6 @@ video {
   justify-content: space-between;
   gap: 1rem;
   padding: 0.9rem 1rem;
-  margin-bottom: 1.5rem;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: rgba(7, 13, 31, 0.95);
@@ -172,7 +175,7 @@ h3 {
 
 h1,
 h2 {
-  font-family: "Instrument Serif", serif;
+  font-family: "Syne", serif;
   font-weight: 400;
 }
 
@@ -217,6 +220,7 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   min-height: 3rem;
   padding: 0.8rem 1.25rem;
   border-radius: 999px;
@@ -505,31 +509,6 @@ p {
     var(--paper);
 }
 
-.achievement-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
-  color: #fff7f0;
-  font-family: "Instrument Serif", serif;
-  font-size: 1.6rem;
-}
-
-.achievement-item {
-  display: grid;
-  grid-template-columns: 84px 1fr;
-  gap: 1rem;
-  padding: 1.3rem;
-}
-
-.achievement-item span {
-  font-weight: 700;
-  color: var(--accent-deep);
-}
-
 .achievement-category {
   display: grid;
   gap: 1.5rem;
@@ -759,7 +738,7 @@ p {
     padding: 0.6rem;
     border: 1px solid var(--line);
     border-radius: 24px;
-    background: rgba(255, 249, 241, 0.96);
+    background: rgba(7, 13, 31, 0.95);
     box-shadow: var(--shadow);
   }
 
